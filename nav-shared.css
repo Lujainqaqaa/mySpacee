@@ -1,0 +1,353 @@
+/* MySpace — unified signed-in navigation, matching the homepage brand */
+:root {
+  --nav-cream: #f8f0e6;
+  --nav-white: #fffdfa;
+  --nav-wine: #500d13;
+  --nav-brown: #80513d;
+  --nav-sand: #e8d4c1;
+  --nav-border: #e5cbb7;
+}
+body > header.topbar,
+body > header.navbar,
+body > nav.navbar,
+body > .navbar,
+body > .topbar {
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 86px;
+  padding: 14px clamp(20px, 4.5vw, 72px) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: clamp(16px, 2vw, 30px) !important;
+  background: rgba(255, 253, 250, .96) !important;
+  border-bottom: 1px solid rgba(229, 203, 183, .8) !important;
+  box-shadow: 0 8px 30px rgba(80, 13, 19, .07) !important;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  backdrop-filter: blur(16px);
+}
+/* Homepage's leaf symbol and wordmark */
+body > header.topbar .brand,
+body > header.navbar .brand,
+body > nav.navbar .brand,
+body > .navbar .brand,
+body > .topbar .brand {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  color: var(--nav-wine) !important;
+  font-family: "Playfair Display", Georgia, serif !important;
+  font-size: clamp(1.45rem, 1.8vw, 1.8rem) !important;
+  font-weight: 600 !important;
+  letter-spacing: -.8px;
+  text-decoration: none !important;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: transform .25s ease, opacity .25s ease;
+}
+body > header.topbar .brand:hover,
+body > header.navbar .brand:hover,
+body > nav.navbar .brand:hover,
+body > .navbar .brand:hover,
+body > .topbar .brand:hover { transform: translateY(-1px); opacity: .88; }
+body > header.topbar .brand .brand-mark,
+body > header.navbar .brand .brand-mark,
+body > nav.navbar .brand .brand-mark,
+body > .navbar .brand .brand-mark,
+body > .topbar .brand .brand-mark {
+  display: block;
+  width: 30px;
+  height: 30px;
+  fill: var(--nav-wine);
+  flex: 0 0 30px;
+}
+body > header.topbar .main-nav,
+body > header.navbar .main-nav,
+body > nav.navbar .nav-links,
+body > .navbar .nav-links,
+body > .topbar .main-nav,
+body > header.navbar .nav-links {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: clamp(8px, 1.55vw, 25px) !important;
+  flex: 1 1 auto;
+  min-width: 0;
+}
+body > header.topbar .main-nav a,
+body > header.navbar .main-nav a,
+body > nav.navbar .nav-links a,
+body > .navbar .nav-links a,
+body > .topbar .main-nav a,
+body > header.navbar .nav-links a {
+  position: relative;
+  color: var(--nav-brown) !important;
+  font-family: "DM Sans", sans-serif !important;
+  font-size: .92rem !important;
+  font-weight: 600 !important;
+  text-decoration: none !important;
+  white-space: nowrap;
+  padding: 11px 1px !important;
+  border: 0 !important;
+  transition: color .22s ease, transform .22s ease;
+}
+body > header.topbar .main-nav a::after,
+body > header.navbar .main-nav a::after,
+body > nav.navbar .nav-links a::after,
+body > .navbar .nav-links a::after,
+body > .topbar .main-nav a::after,
+body > header.navbar .nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: 3px;
+  height: 2px;
+  border-radius: 10px;
+  background: var(--nav-wine);
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform .22s ease;
+}
+body > header.topbar .main-nav a:hover,
+body > header.navbar .main-nav a:hover,
+body > nav.navbar .nav-links a:hover,
+body > .navbar .nav-links a:hover,
+body > .topbar .main-nav a:hover,
+body > header.navbar .nav-links a:hover,
+body > header.topbar .main-nav a.active,
+body > header.navbar .main-nav a.active,
+body > nav.navbar .nav-links a.active,
+body > .navbar .nav-links a.active,
+body > .topbar .main-nav a.active,
+body > header.navbar .nav-links a.active { color: var(--nav-wine) !important; }
+body > header.topbar .main-nav a:hover::after,
+body > header.navbar .main-nav a:hover::after,
+body > nav.navbar .nav-links a:hover::after,
+body > .navbar .nav-links a:hover::after,
+body > .topbar .main-nav a:hover::after,
+body > header.navbar .nav-links a:hover::after,
+body > header.topbar .main-nav a.active::after,
+body > header.navbar .main-nav a.active::after,
+body > nav.navbar .nav-links a.active::after,
+body > .navbar .nav-links a.active::after,
+body > .topbar .main-nav a.active::after,
+body > header.navbar .nav-links a.active::after { transform: scaleX(1); }
+body > header.topbar .nav-actions,
+body > header.navbar .nav-actions,
+body > nav.navbar .nav-user,
+body > .navbar .nav-user,
+body > .topbar .nav-actions {
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  flex-shrink: 0;
+}
+body > header.topbar .avatar,
+body > header.navbar .avatar,
+body > nav.navbar .avatar,
+body > .navbar .avatar,
+body > .topbar .avatar,
+body > header.navbar .user-avatar,
+body > nav.navbar .user-avatar,
+body > .navbar .user-avatar {
+  width: 42px !important;
+  height: 42px !important;
+  min-width: 42px;
+  border-radius: 50% !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border: 2px solid var(--nav-white) !important;
+  outline: 1px solid var(--nav-border);
+  background: var(--nav-wine) !important;
+  color: var(--nav-white) !important;
+  font-size: 1rem !important;
+  font-weight: 700 !important;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: transform .22s ease, box-shadow .22s ease;
+}
+body > header.topbar .avatar:hover,
+body > header.navbar .avatar:hover,
+body > nav.navbar .avatar:hover,
+body > .navbar .avatar:hover { transform: translateY(-2px); box-shadow: 0 5px 14px rgba(80,13,19,.2); }
+body > header.topbar .logout,
+body > header.navbar .logout,
+body > nav.navbar .logout-btn,
+body > nav.navbar .logout,
+body > .navbar .logout,
+body > .navbar .logout-btn,
+body > .topbar .logout {
+  border: 1px solid var(--nav-wine) !important;
+  border-radius: 999px !important;
+  padding: 10px 19px !important;
+  background: var(--nav-wine) !important;
+  color: var(--nav-white) !important;
+  font-family: "DM Sans", sans-serif !important;
+  font-size: .88rem !important;
+  font-weight: 700 !important;
+  cursor: pointer;
+  transition: background .22s ease, color .22s ease, transform .22s ease, box-shadow .22s ease;
+}
+body > header.topbar .logout:hover,
+body > header.navbar .logout:hover,
+body > nav.navbar .logout-btn:hover,
+body > nav.navbar .logout:hover,
+body > .navbar .logout:hover,
+body > .navbar .logout-btn:hover,
+body > .topbar .logout:hover {
+  background: transparent !important;
+  color: var(--nav-wine) !important;
+  transform: translateY(-1px);
+  box-shadow: 0 5px 14px rgba(80,13,19,.08);
+}
+body > header.topbar .message-button,
+body > header.navbar .message-button,
+body > nav.navbar .message-shortcut,
+body > .navbar .message-shortcut,
+body > .topbar .message-button {
+  width: 40px;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--nav-wine) !important;
+  text-decoration: none;
+  font-size: 1.25rem;
+  border: 1px solid var(--nav-border);
+  border-radius: 50%;
+  background: var(--nav-white);
+  cursor: pointer;
+  transition: background .2s ease, transform .2s ease;
+}
+body > header.topbar .message-button:hover,
+body > header.navbar .message-button:hover { background: var(--nav-cream); transform: translateY(-1px); }
+@media (max-width: 1000px) {
+  body > header.topbar,
+  body > header.navbar,
+  body > nav.navbar,
+  body > .navbar,
+  body > .topbar { flex-wrap: wrap !important; gap: 12px !important; padding: 14px 20px !important; }
+  body > header.topbar .main-nav,
+  body > header.navbar .main-nav,
+  body > nav.navbar .nav-links,
+  body > .navbar .nav-links,
+  body > .topbar .main-nav,
+  body > header.navbar .nav-links { order: 3; flex-basis: 100%; overflow-x: auto; justify-content: flex-start !important; padding-bottom: 2px; }
+}
+@media (max-width: 560px) {
+  body > header.topbar,
+  body > header.navbar,
+  body > nav.navbar,
+  body > .navbar,
+  body > .topbar { padding: 12px 15px !important; }
+  body > header.topbar .brand,
+  body > header.navbar .brand,
+  body > nav.navbar .brand,
+  body > .navbar .brand,
+  body > .topbar .brand { font-size: 1.35rem !important; }
+  body > header.topbar .brand .brand-mark,
+  body > header.navbar .brand .brand-mark,
+  body > nav.navbar .brand .brand-mark,
+  body > .navbar .brand .brand-mark,
+  body > .topbar .brand .brand-mark { width: 26px; height: 26px; flex-basis: 26px; }
+}
+
+
+/* User initial button matches the warm beige Logout button */
+body > header.topbar .avatar,
+body > header.navbar .avatar,
+body > nav.navbar .avatar,
+body > .navbar .avatar,
+body > .topbar .avatar,
+body > header.navbar .user-avatar,
+body > nav.navbar .user-avatar,
+body > .navbar .user-avatar {
+  background: #e8d4c1 !important;
+  color: #5f4032 !important;
+  border: 1px solid #e8d4c1 !important;
+  outline: 1px solid #d7bca5 !important;
+  box-shadow: 0 4px 12px rgba(128, 81, 61, .08);
+}
+body > header.topbar .avatar:hover,
+body > header.navbar .avatar:hover,
+body > nav.navbar .avatar:hover,
+body > .navbar .avatar:hover,
+body > .topbar .avatar:hover,
+body > header.navbar .user-avatar:hover,
+body > nav.navbar .user-avatar:hover,
+body > .navbar .user-avatar:hover {
+  background: #f8f0e6 !important;
+  color: #80513d !important;
+  outline-color: #d7bca5 !important;
+  box-shadow: 0 6px 16px rgba(128, 81, 61, .12);
+}
+
+/* Refined MySpace navbar — thin borders and understated details */
+body > header.topbar,
+body > header.navbar,
+body > nav.navbar,
+body > .navbar,
+body > .topbar {
+  min-height: 78px !important;
+  padding-top: 10px !important;
+  padding-bottom: 10px !important;
+  background: #fffdfa !important;
+  border-bottom: 1px solid #eadfd5 !important;
+  box-shadow: 0 3px 12px rgba(61, 43, 36, .035) !important;
+}
+body > header.topbar .main-nav a,
+body > header.navbar .main-nav a,
+body > nav.navbar .nav-links a,
+body > .navbar .nav-links a,
+body > .topbar .main-nav a,
+body > header.navbar .nav-links a {
+  font-size: .94rem !important;
+  font-weight: 500 !important;
+  letter-spacing: .05px;
+}
+body > header.topbar .main-nav a::after,
+body > header.navbar .main-nav a::after,
+body > nav.navbar .nav-links a::after,
+body > .navbar .nav-links a::after,
+body > .topbar .main-nav a::after,
+body > header.navbar .nav-links a::after {
+  height: 1px !important;
+  bottom: 2px !important;
+  border-radius: 0 !important;
+}
+body > header.topbar .avatar,
+body > header.navbar .avatar,
+body > nav.navbar .avatar,
+body > .navbar .avatar,
+body > .topbar .avatar,
+body > header.navbar .user-avatar,
+body > nav.navbar .user-avatar,
+body > .navbar .user-avatar {
+  width: 42px !important;
+  height: 42px !important;
+  min-width: 42px !important;
+  font-weight: 500 !important;
+  box-shadow: none !important;
+}
+body > header.topbar .logout,
+body > header.navbar .logout,
+body > nav.navbar .logout-btn,
+body > nav.navbar .logout,
+body > .navbar .logout,
+body > .navbar .logout-btn,
+body > .topbar .logout {
+  border: 1px solid #500d13 !important;
+  box-shadow: none !important;
+  font-weight: 600 !important;
+  padding: 10px 20px !important;
+}
+body > header.topbar .message-button,
+body > header.navbar .message-button,
+body > nav.navbar .message-shortcut,
+body > .navbar .message-shortcut,
+body > .topbar .message-button {
+  border: 1px solid #d9c4b4 !important;
+  box-shadow: none !important;
+}

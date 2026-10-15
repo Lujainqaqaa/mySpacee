@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MySpace | My Projects</title>
+  <link rel="stylesheet" href="myprojects.css">
+  <link rel="stylesheet" href="nav-shared.css">
+</head>
+<body>
+  <!-- Main navigation -->
+  <header class="topbar">
+    <a class="brand" href="myhome.html" aria-label="MySpace home">
+      <svg class="brand-mark" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M12 2C6.5 2 3 7 3 12c0 2.8 1.2 5.3 3.1 7 .8-3.5 3.5-6.5 7.4-7.5C10.6 13 9 15 9 17.5c0 3 2 5.3 4.8 5.5C17.5 23.1 21 18.5 21 13c0-6-4-11-9-11Z" />
+      </svg>
+      <span>MySpace</span>
+    </a>
+    <nav class="main-nav" aria-label="Main navigation">
+      <a href="myhome.html">My Home</a>
+      <a href="ai.html">AI Design</a>
+      <a href="desinger.html">Designers</a>
+      <a href="shop.html">Reuse Furniture</a>
+      <a class="active" href="myprojects.html">My Projects</a>
+    </nav>
+    <div class="nav-actions">
+      <button class="message-button" aria-label="Messages" title="Messages">▱</button>
+      <button class="avatar" id="avatarButton" aria-label="User profile">U</button>
+      <button class="logout" id="logoutButton">Logout</button>
+    </div>
+  </header>
+
+  <main class="page">
+    <!-- Page heading -->
+    <section class="page-heading">
+      <p class="eyebrow">PROJECTS</p>
+      <h1>My Projects</h1>
+      <p class="subtitle">Track progress, budgets, and designers across all your rooms.</p>
+    </section>
+
+    <!-- Project summary statistics -->
+    <section class="stats-grid" aria-label="Project summary">
+      <article class="stat-card"><p>ACTIVE PROJECTS</p><strong id="activeCount">3</strong></article>
+      <article class="stat-card"><p>COMPLETED</p><strong id="completedCount">1</strong></article>
+      <article class="stat-card"><p>TOTAL BUDGET</p><strong id="totalBudget">JD 2.67K</strong></article>
+      <article class="stat-card"><p>TOTAL SPENT</p><strong id="totalSpent">JD 1.85K</strong></article>
+    </section>
+
+    <!-- Project cards are rendered by JavaScript -->
+    <section id="projectsList" class="projects-list" aria-label="Projects"></section>
+  </main>
+
+  <!-- View project details modal -->
+  <div class="modal-backdrop" id="modalBackdrop" hidden>
+    <section class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal-close" id="modalClose" aria-label="Close dialog">×</button>
+      <h2 id="modalTitle">Project Details</h2>
+      <div id="modalContent"></div>
+      <button class="button button-outline" id="modalCancel">Close</button>
+    </section>
+  </div>
+  <script src="platform-data.js"></script><script src="auth-guard.js"></script>
+  <script src="app-links.js"></script>
+  <script src="myprojects.js"></script>
+</body>
+</html>

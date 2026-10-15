@@ -1,0 +1,46 @@
+// Load the exact provider selected from the Designers page.
+const providerFallback = {id:1,name:'Nour Design Studio',role:'Interior Designer',city:'Amman',price:45,rating:4.9,reviews:87,tags:['Modern','Minimal'],category:'Interior Designers',image:'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=700&q=85',bio:'Interior designer focused on calm, modern living spaces and thoughtful layouts.'};
+let provider = providerFallback;
+try { provider = JSON.parse(localStorage.getItem('myspace_selected_provider') || 'null') || providerFallback; } catch (_) {}
+const extended = {
+  1:{about:'Nour Design Studio creates calm, functional homes with warm neutral palettes, thoughtful layouts and natural materials.',services:[['Full Room Design','JD 350+'],['Design Consultation (1 hour)','JD 45'],['3D Room Visualization','JD 150'],['Furniture & Styling Plan','JD 90']],specialties:['Modern','Minimal','Residential','Space planning'],years:'8 years',projects:'32 projects',next:'Oct 20, 2026',response:'Within 2 hours',active:'3 active projects',reviewsText:['Beautiful balance of comfort and style.','The layout made our living room feel much bigger.']},
+  2:{about:'Craft & Care designs and builds made-to-measure furniture, with a focus on durable joinery, natural timber and careful finishing.',services:[['Custom Furniture Design','JD 30/hr'],['Made-to-measure Table','From JD 180'],['Wood Restoration','From JD 55'],['Shelving & Storage','From JD 75']],specialties:['Custom wood','Handmade','Restoration','Furniture making'],years:'10 years',projects:'54 projects',next:'Oct 22, 2026',response:'Within 1 business day',active:'5 active projects',reviewsText:['The craftsmanship and finish are excellent.','Delivered a beautiful custom piece.']},
+  3:{about:'Studio Terra plans layered residential lighting that brings warmth, clarity and energy-conscious functionality to every room.',services:[['Lighting Consultation','JD 40/hr'],['Room Lighting Plan','JD 120'],['Smart Lighting Setup','From JD 160'],['Fixture Selection','JD 65']],specialties:['Ambient lighting','Smart home','Lighting plans','Energy efficient'],years:'7 years',projects:'41 projects',next:'Oct 19, 2026',response:'Within 3 hours',active:'4 active projects',reviewsText:['The lighting completely changed the mood.','Professional advice and clear recommendations.']},
+  4:{about:'Rana Odeh creates elegant, classic interiors with layered textures, timeless furniture and refined luxury details.',services:[['Classic Room Design','From JD 420'],['Consultation (1 hour)','JD 42'],['Luxury Styling Plan','JD 180'],['Color & Material Selection','JD 95']],specialties:['Classic','Luxury','Residential','Color planning'],years:'9 years',projects:'47 projects',next:'Oct 21, 2026',response:'Within 4 hours',active:'6 active projects',reviewsText:['Elegant results and a very thoughtful process.','Helped us choose timeless finishes.']},
+  5:{about:'BrightFix builds practical custom carpentry, fitted storage, shelves and built-in solutions designed around the way you live.',services:[['Carpentry Consultation','JD 28/hr'],['Built-in Wardrobe','From JD 280'],['Custom Shelves','From JD 60'],['Furniture Repair','From JD 35']],specialties:['Built-in storage','Custom carpentry','Repairs','Space saving'],years:'12 years',projects:'68 projects',next:'Oct 24, 2026',response:'Within 1 business day',active:'7 active projects',reviewsText:['Great attention to detail and useful storage.','Reliable and neat workmanship.']},
+  6:{about:'Mira Interiors creates tailored curtains and soft furnishings with carefully chosen fabrics, handmade details and a polished finish.',services:[['Curtain Consultation','JD 25/hr'],['Made-to-measure Curtains','From JD 85'],['Cushions & Soft Furnishings','From JD 35'],['Fabric Selection','JD 55']],specialties:['Curtains','Textiles','Handmade','Luxury fabrics'],years:'6 years',projects:'29 projects',next:'Oct 23, 2026',response:'Within 5 hours',active:'2 active projects',reviewsText:['Lovely fabric suggestions and a perfect fit.','Beautiful handmade finishing.']}
+};
+const details = extended[provider.id] || extended[1];
+const $id = id => document.getElementById(id);
+$id('providerPhoto').src = provider.image;
+$id('providerName').textContent = provider.name;
+$id('providerRole').textContent = `${provider.role} · ${provider.city}, Jordan`;
+$id('providerMeta').innerHTML = `<span>★ ${Number(provider.rating || 4.8).toFixed(1)}</span><span>${provider.reviews || 20} reviews</span><span class="available">Available for projects</span>`;
+$id('providerBio').textContent = provider.bio;
+$id('providerAbout').textContent = details.about;
+$id('providerTags').innerHTML = [...new Set([...(provider.tags || []), ...details.specialties])].map(tag=>`<span class="tag">${tag}</span>`).join('');
+$id('providerServices').innerHTML = details.services.map(([name,price])=>`<article class="dynamic-service"><div><h3>${name}</h3><p>Tailored to your room, needs and preferred style.</p></div><strong>${price}</strong></article>`).join('');
+const portfolioImages = provider.id === 2
+ ? ['photo-1538688525198-9b88f6f53126','photo-1494438639946-1ebd1d20bf85','photo-1600210492486-724fe5c67fb0']
+ : provider.id === 3
+ ? ['photo-1513506003901-1e6a229e2d15','photo-1600607687939-ce8a6c25118c','photo-1600210492486-724fe5c67fb0']
+ : provider.id === 5
+ ? ['photo-1558997519-83ea9252edf8','photo-1600607687939-ce8a6c25118c','photo-1494438639946-1ebd1d20bf85']
+ : provider.id === 6
+ ? ['photo-1616486338812-3dadae4b4ace','photo-1618221195710-dd6b41faaea6','photo-1600210492486-724fe5c67fb0']
+ : ['photo-1616486338812-3dadae4b4ace','photo-1600210492486-724fe5c67fb0','photo-1600607687939-ce8a6c25118c'];
+$id('providerPortfolio').innerHTML = portfolioImages.map((img,i)=>`<figure><img src="https://images.unsplash.com/${img}?auto=format&fit=crop&w=900&q=85" alt="${provider.name} portfolio work ${i+1}"><figcaption>${['Signature project','Room transformation','Materials & details'][i]}</figcaption></figure>`).join('');
+$id('providerReviews').innerHTML = details.reviewsText.map((review,i)=>`<article class="dynamic-review"><div><strong>${['Verified client','Homeowner'][i]}</strong><span>★★★★★</span></div><p>${review}</p></article>`).join('');
+$id('providerDetails').innerHTML = `<div class="info-row"><span>Location</span><strong>${provider.city}, Jordan</strong></div><div class="info-row"><span>Experience</span><strong>${details.years}</strong></div><div class="info-row"><span>Completed work</span><strong>${details.projects}</strong></div><div class="info-row"><span>Starting rate</span><strong>JD ${provider.price}/hr</strong></div><div class="info-row"><span>Category</span><strong>${provider.category || provider.role}</strong></div>`;
+$id('providerNext').textContent = details.next; $id('providerResponse').textContent = details.response; $id('providerActive').textContent = details.active;
+$id('chatButton').addEventListener('click',()=>{location.href='chat.html';});
+$id('requestButton').addEventListener('click',()=>{
+  const serviceOptions = details.services.map(([name,price])=>`<option value="${name}">${name} — ${price}</option>`).join('');
+  const content = `<form id="providerRequestForm" class="provider-request-form"><p>Tell ${provider.name} what you would like help with.</p><label for="serviceSelect">Choose a service</label><select id="serviceSelect" required>${serviceOptions}</select><label for="serviceDetails">Project details</label><textarea id="serviceDetails" rows="4" placeholder="Room type, preferred style, budget and timeline..." required></textarea><label for="serviceContact">Email or phone</label><input id="serviceContact" required placeholder="How can the designer contact you?"><p id="requestFeedback" role="status"></p><button class="button button-primary" type="submit">Send request</button></form>`;
+  const old=document.getElementById('providerRequestOverlay'); if(old)old.remove();
+  const overlay=document.createElement('div'); overlay.id='providerRequestOverlay'; overlay.className='modal-backdrop'; overlay.innerHTML=`<section class="modal" role="dialog" aria-modal="true"><button class="modal-close" type="button" aria-label="Close">×</button><h2>Request a Service</h2>${content}</section>`; document.body.appendChild(overlay);
+  const close=()=>overlay.remove(); overlay.querySelector('.modal-close').onclick=close; overlay.addEventListener('click',e=>{if(e.target===overlay)close();});
+  overlay.querySelector('form').addEventListener('submit',e=>{e.preventDefault(); const requests=JSON.parse(localStorage.getItem('mySpaceDesignerRequests')||'[]'); requests.push({provider:provider.name,service:$id('serviceSelect').value,details:$id('serviceDetails').value,contact:$id('serviceContact').value,createdAt:new Date().toISOString()}); localStorage.setItem('mySpaceDesignerRequests',JSON.stringify(requests)); $id('requestFeedback').textContent='Your service request has been saved in this browser.';});
+});
+document.getElementById('avatarButton').addEventListener('click',()=>location.href='setting.html');
+document.getElementById('logoutButton').addEventListener('click',()=>{localStorage.removeItem('myspace_current_user');location.href='index.html';});

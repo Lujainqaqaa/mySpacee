@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up | MySpace</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="signup.css">
+</head>
+<body>
+  <main class="auth-page">
+    <!-- Left panel: room image and promotional text -->
+    <section class="visual-panel" aria-label="MySpace interior design">
+      <div class="photo-overlay"></div>
+      <div class="visual-copy">
+        <h2>Your Dream Home Begins Here</h2>
+      </div>
+    </section>
+
+    <!-- Right panel: account creation form -->
+    <section class="form-panel">
+      <div class="form-content">
+        <header class="form-heading">
+          <h1>Create Your Account</h1>
+          <p>Join MySpace and start your interior journey.</p>
+        </header>
+        <form id="signupForm" novalidate>
+          <div class="field">
+            <label for="fullName">Full Name</label>
+            <input id="fullName" name="fullName" type="text" placeholder="Sara Al-Ahmadi" autocomplete="name" required>
+          </div>
+
+          <div class="field">
+            <label for="email">Email Address</label>
+            <input id="email" name="email" type="email" placeholder="sara@example.com" autocomplete="email" required>
+          </div>
+
+          <div class="field">
+            <label for="password">Password</label>
+            <div class="password-wrap">
+              <input id="password" name="password" type="password" placeholder="••••••••" autocomplete="new-password" minlength="8" required>
+              <button class="toggle-password" type="button" data-target="password" aria-label="Show password">Show</button>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="confirmPassword">Confirm Password</label>
+            <div class="password-wrap">
+              <input id="confirmPassword" name="confirmPassword" type="password" placeholder="••••••••" autocomplete="new-password" minlength="8" required>
+              <button class="toggle-password" type="button" data-target="confirmPassword" aria-label="Show confirm password">Show</button>
+            </div>
+          </div>
+
+          <button class="submit-button" type="submit">Create Account</button>
+          <p class="form-message" id="formMessage" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+  <script src="platform-data.js"></script><script src="app-links.js"></script>
+  <script src="signup.js"></script>
+   
+
+
+  
+</body>
+</html>

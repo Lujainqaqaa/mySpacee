@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MySpace | Living Room Design</title>
+  <link rel="stylesheet" href="ai.css">
+  <link rel="stylesheet" href="nav-shared.css">
+</head>
+<body>
+  <!-- Top navigation -->
+  <header class="topbar">
+    <a class="brand" href="myhome.html" aria-label="MySpace home">
+      <svg class="brand-mark" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M12 2C6.5 2 3 7 3 12c0 2.8 1.2 5.3 3.1 7 .8-3.5 3.5-6.5 7.4-7.5C10.6 13 9 15 9 17.5c0 3 2 5.3 4.8 5.5C17.5 23.1 21 18.5 21 13c0-6-4-11-9-11Z" />
+      </svg>
+      <span>MySpace</span>
+    </a>
+    <nav class="main-nav" aria-label="Main navigation">
+      <a href="myhome.html">My Home</a>
+      <a class="active" href="ai.html">AI Design</a>
+      <a href="desinger.html">Designers</a>
+      <a href="shop.html">Reuse Furniture</a>
+      <a href="myprojects.html">My Projects</a>
+    </nav>
+    <div class="nav-actions">
+      <button class="message-button" aria-label="Messages" title="Messages">▱</button>
+      <button class="avatar" id="avatarButton" aria-label="User profile">U</button>
+      <button class="logout" id="logoutButton">Logout</button>
+    </div>
+  </header>
+
+  <main class="page">
+    <!-- Page heading -->
+    <section class="page-heading">
+      <p class="eyebrow">AI-POWERED DESIGN</p>
+      <h1>Living Room Design</h1>
+      <p class="subtitle">Personalized recommendations based on your preferences.</p>
+    </section>
+
+    <!-- Two-column design workspace -->
+    <div class="workspace">
+      <aside class="preferences">
+        <section class="panel room-panel">
+          <p class="section-label">YOUR ROOM</p>
+          <div class="room-upload">
+            <label class="upload-drop" for="roomImageInput"><span class="upload-icon">＋</span><strong>Upload your room photo</strong><small>Choose an image from your device to share with AI Design</small><span class="upload-cta">Choose image</span></label>
+            <input id="roomImageInput" type="file" accept="image/*" hidden>
+            <div id="roomUploadPreview" class="room-upload-preview" hidden><img id="uploadedRoomImage" alt="Your uploaded room"><button type="button" id="removeRoomImage" class="remove-upload">Remove photo</button></div>
+            <p id="uploadFeedback" class="upload-feedback" role="status"></p>
+          </div>
+          <img class="sofa-image" src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1000&q=85" alt="Teal sofa in a bright living room" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?auto=format&fit=crop&w=1000&q=85';">
+          <dl class="room-details">
+            <div><dt>Room Type</dt><dd>Living Room</dd></div>
+            <div><dt>Style</dt><dd>Scandinavian</dd></div>
+            <div><dt>Size</dt><dd>28 m²</dd></div>
+            <div><dt>Budget</dt><dd>JD 2,850</dd></div>
+            <div><dt>Lighting</dt><dd>Warm ambient</dd></div>
+          </dl>
+        </section>
+
+        <section class="panel colors-panel">
+          <p class="section-label">PREFERRED COLORS</p>
+          <div class="color-chips">
+            <span class="chip"><i class="dot ivory"></i>Ivory</span>
+            <span class="chip"><i class="dot beige"></i>Beige</span>
+            <span class="chip"><i class="dot sage"></i>Sage</span>
+          </div>
+        </section>
+        <button class="button button-outline full-width" id="regenerateButton">↻ Regenerate Design</button>
+        <button class="button button-primary full-width" id="saveButton">Save Design</button>
+        <p class="status-message" id="statusMessage" role="status" aria-live="polite"></p>
+      </aside>
+
+      <section class="results">
+        <!-- AI-generated room concept -->
+        <article class="concept-card">
+          <div class="concept-image">
+            <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=1600&q=85" alt="Warm Scandinavian living room concept" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1600&q=85';">
+            <span class="concept-badge">✨ AI Room Makeover Concept</span>
+          </div>
+          <div class="concept-caption">
+            <h2>Concept: Nordic Warmth</h2>
+            <p>A calming Scandinavian-inspired living space with warm ivory tones, natural textures, and strategic lighting to create an inviting atmosphere.</p>
+          </div>
+        </article>
+
+        <!-- Recommendations -->
+        <h2 class="recommendations-title">Detailed Recommendations</h2>
+        <div class="recommendation-grid">
+          <article class="recommendation"><span class="rec-icon">🛋</span><div><h3>Sofa &amp; Seating</h3><p>3-seater sofa in warm ivory linen, 220cm × 90cm</p></div></article>
+          <article class="recommendation"><span class="rec-icon">◯</span><div><h3>Coffee Table</h3><p>Solid oak round table, Ø 80cm, natural finish</p></div></article>
+          <article class="recommendation"><span class="rec-icon">□</span><div><h3>Wall Color</h3><p>#F2EAE1 — Soft Almond, matte finish</p></div></article>
+          <article class="recommendation"><span class="rec-icon">◉</span><div><h3>Lighting</h3><p>Pendant lamp 55cm diameter, warm 2700K, dimmer-ready</p></div></article>
+          <article class="recommendation"><span class="rec-icon">▤</span><div><h3>Rug</h3><p>Hand-woven jute rug 200×300cm, natural ivory/beige</p></div></article>
+          <article class="recommendation"><span class="rec-icon">▧</span><div><h3>Curtains</h3><p>Linen curtains, 260cm drop, off-white, eyelet top</p></div></article>
+          <article class="recommendation"><span class="rec-icon">▤</span><div><h3>Storage</h3><p>Floating oak shelves × 3, staggered arrangement</p></div></article>
+          <article class="recommendation"><span class="rec-icon">✳</span><div><h3>Decorations</h3><p>Dried pampas grass, ceramic vases, aged brass accents</p></div></article>
+        </div>
+
+        <div class="bottom-actions">
+          <button class="button button-outline" id="designerButton">Find a Designer</button>
+          <button class="button button-primary" id="shopButton">Shop Furniture</button>
+        </div>
+      </section>
+    </div>
+  </main>
+  <script src="platform-data.js"></script><script src="auth-guard.js"></script>
+  <script src="app-links.js"></script>
+  <script src="ai.js"></script>
+</body>
+</html>

@@ -1,0 +1,137 @@
+:root {
+  --page-bg: #f8f1e8;
+  --panel: #fffdfa;
+  --primary: #4c0e14;
+  --text: #431015;
+  --muted: #875b56;
+  --border: #e5cdb9;
+  --chip: #e7d1bd;
+  --danger: #df2929;
+  --shadow: 0 5px 22px rgba(73, 37, 22, .07);
+}
+* { box-sizing: border-box; }
+html, body { min-height: 100%; margin: 0; }
+body { background: var(--page-bg); color: var(--text); font: 14px Arial, Helvetica, sans-serif; }
+button, input, textarea, select { font: inherit; }
+button { cursor: pointer; }
+a { color: inherit; text-decoration: none; }
+
+/* Full-width top navigation */
+.topbar {
+  width: 100%; min-height: 62px; padding: 0 1.5%;
+  display: flex; align-items: center; justify-content: space-between; gap: 24px;
+  border-bottom: 1px solid var(--border); background: rgba(248,241,232,.98);
+}
+.brand { display: flex; align-items: center; gap: 9px; white-space: nowrap; font: bold 20px Georgia, 'Times New Roman', serif; }
+.brand-mark { color: #9d7169; font-size: 26px; }
+.main-nav { display: flex; align-items: center; justify-content: center; gap: clamp(18px, 2.3vw, 40px); height: 62px; margin: 0 auto; }
+.main-nav a { height: 100%; display: flex; align-items: center; white-space: nowrap; font-size: 13px; color: #55262a; border-bottom: 2px solid transparent; }
+.main-nav a:hover { color: var(--primary); border-bottom-color: var(--primary); }
+.nav-actions { display: flex; align-items: center; gap: 12px; }
+.message-button, .avatar, .logout { color: var(--text); border: 0; background: transparent; }
+.message-button { font-size: 22px; }
+.avatar-nav { display: grid; place-items: center; width: 36px; height: 36px; border: 3px solid #fff; outline: 1px solid var(--border); border-radius: 50%; background: #d0aaa3; font-size: 12px; }
+.logout { border: 1px solid var(--border); border-radius: 22px; padding: 9px 17px; white-space: nowrap; }
+
+/* Main content is wide on laptop screens */
+.page { width: 100%; max-width: 1800px; margin: 0 auto; padding: 42px 4.2% 50px; }
+.page-heading { margin: 0 0 34px; }
+.eyebrow { margin: 0 0 9px; color: #985e5b; font-size: 11px; letter-spacing: 1.1px; }
+h1 { margin: 0; font: 400 clamp(30px, 2.3vw, 44px) Georgia, 'Times New Roman', serif; }
+.settings-layout { display: grid; grid-template-columns: minmax(205px, 25%) minmax(0, 1fr); gap: 28px; align-items: start; }
+
+/* Left settings menu */
+.settings-sidebar { display: flex; flex-direction: column; gap: 0; }
+.side-link { width: 100%; min-height: 48px; padding: 13px 18px; border: 0; border-radius: 12px; background: transparent; color: #683a3c; text-align: left; font-size: 13px; }
+.side-link:hover { background: rgba(231,209,189,.55); }
+.side-link.active { background: var(--chip); color: var(--text); }
+.side-divider { height: 2px; margin: 20px 0 14px; background: var(--border); }
+.side-link.danger { color: var(--danger); }
+
+/* Profile form card */
+.settings-card { min-width: 0; padding: 28px 30px 26px; border-radius: 18px; background: var(--panel); box-shadow: var(--shadow); }
+.profile-summary { display: flex; align-items: center; gap: 18px; min-height: 80px; }
+.profile-avatar-wrap { position: relative; flex: 0 0 auto; }
+.profile-avatar { display: grid; place-items: center; width: 88px; height: 88px; overflow: hidden; border-radius: 50%; background: #cba49d; color: #fff; font: 400 32px Georgia, serif; }
+.profile-avatar img { width: 100%; height: 100%; object-fit: cover; }
+.avatar-upload { position: absolute; right: -2px; bottom: 0; display: grid; place-items: center; width: 27px; height: 27px; border: 2px solid var(--panel); border-radius: 50%; background: var(--primary); color: white; font-size: 18px; cursor: pointer; }
+.profile-identity h2 { margin: 0 0 8px; font-size: 15px; font-weight: 500; color: #2f1718; }
+.profile-identity p { margin: 0 0 8px; color: #714a46; font-size: 13px; }
+.role-chip { display: inline-block; padding: 4px 10px; border-radius: 15px; background: var(--chip); color: #704b43; font-size: 11px; }
+.panel-divider { height: 2px; margin: 28px 0 26px; background: var(--border); }
+
+/* Responsive two-column account form */
+.form-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 19px 20px; }
+.field { min-width: 0; }
+.field.full { grid-column: 1 / -1; }
+.field label { display: block; margin-bottom: 8px; color: #4c2427; font-size: 12px; }
+.field input, .field textarea, .field select {
+  display: block; width: 100%; min-height: 49px; padding: 12px 16px;
+  border: 2px solid var(--border); border-radius: 12px; outline: none; background: #fff;
+  color: #5b3435; font-size: 13px; transition: border-color .15s ease;
+}
+.field textarea { min-height: 92px; resize: vertical; }
+.field input:focus, .field textarea:focus, .field select:focus { border-color: #b78b7e; }
+.form-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 25px; }
+.button { min-height: 43px; padding: 11px 22px; border: 1px solid var(--border); border-radius: 24px; background: transparent; color: var(--primary); font-size: 12px; }
+.button-primary { border-color: var(--primary); background: var(--primary); color: #fff; }
+.button-primary:hover { background: #681820; }
+.button-outline:hover { background: var(--chip); }
+.feedback { min-height: 0; margin: 12px 0 0; color: #277744; font-size: 12px; }
+.feedback:empty { display: none; }
+
+/* Other settings sections */
+.section-title { margin: 0 0 8px; font: 400 23px Georgia, serif; }
+.section-description { margin: 0 0 23px; color: var(--muted); line-height: 1.6; font-size: 13px; }
+.settings-option { display: flex; align-items: center; justify-content: space-between; gap: 18px; padding: 17px 0; border-bottom: 1px solid #eadbd0; }
+.settings-option:last-of-type { border-bottom: 0; }
+.option-copy strong { display: block; margin-bottom: 5px; font-size: 13px; font-weight: 500; }
+.option-copy span { display: block; color: var(--muted); font-size: 12px; line-height: 1.5; }
+.toggle { width: 42px; height: 24px; accent-color: var(--primary); flex: 0 0 auto; }
+.inline-note { color: var(--muted); font-size: 12px; line-height: 1.6; }
+
+/* Modal */
+.modal-backdrop { position: fixed; inset: 0; z-index: 100; display: grid; place-items: center; padding: 20px; background: rgba(39,18,18,.45); }
+.modal-backdrop[hidden] { display: none; }
+.modal { position: relative; width: min(100%, 500px); max-height: 90vh; overflow: auto; padding: 28px; border-radius: 18px; background: var(--panel); box-shadow: 0 20px 70px rgba(0,0,0,.2); }
+.modal h2 { margin: 0 35px 15px 0; font: 400 25px Georgia, serif; }
+.modal p { color: #80524e; font-size: 13px; line-height: 1.65; }
+.modal-close { position: absolute; top: 12px; right: 15px; border: 0; background: transparent; color: var(--text); font-size: 28px; }
+.modal-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
+
+/* Use available laptop width and slightly larger controls on wide displays */
+@media (min-width: 1450px) {
+  .page { padding-top: 48px; }
+  .page-heading { margin-bottom: 38px; }
+  .settings-layout { gap: 32px; }
+  .settings-card { padding: 34px 36px 30px; }
+  .side-link { min-height: 54px; font-size: 14px; }
+  .profile-avatar { width: 96px; height: 96px; }
+  .field input, .field select { min-height: 54px; font-size: 14px; }
+  .field textarea { min-height: 105px; }
+}
+@media (max-width: 850px) {
+  .topbar { padding: 0 14px; gap: 12px; }
+  .main-nav { gap: 14px; }
+  .main-nav a { font-size: 12px; }
+  .page { padding: 30px 20px; }
+  .settings-layout { grid-template-columns: 190px minmax(0, 1fr); gap: 18px; }
+  .settings-card { padding: 22px; }
+  .form-grid { gap: 16px; }
+}
+@media (max-width: 650px) {
+  .topbar { flex-wrap: wrap; padding: 10px 14px; }
+  .main-nav { order: 3; width: 100%; height: 38px; justify-content: flex-start; overflow-x: auto; gap: 22px; }
+  .nav-actions { margin-left: auto; }
+  .page { padding: 24px 13px; }
+  .page-heading { margin-bottom: 22px; }
+  .settings-layout { grid-template-columns: 1fr; gap: 18px; }
+  .settings-sidebar { flex-direction: row; overflow-x: auto; gap: 6px; padding-bottom: 4px; }
+  .side-link { width: auto; min-width: max-content; min-height: 40px; padding: 10px 13px; }
+  .side-divider { display: none; }
+  .settings-card { padding: 20px 16px; }
+  .profile-avatar { width: 70px; height: 70px; }
+  .panel-divider { margin: 20px 0; }
+  .form-grid { grid-template-columns: 1fr; gap: 15px; }
+  .field.full { grid-column: auto; }
+}

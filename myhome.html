@@ -1,0 +1,142 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Home | MySpace</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Page CSS -->
+  <link rel="stylesheet" href="myhome.css">
+  <link rel="stylesheet" href="nav-shared.css">
+</head>
+<body>
+
+  <!-- Main navigation -->
+  <nav class="navbar">
+    <a class="brand" href="myhome.html" aria-label="MySpace home">
+      <svg class="brand-mark" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M12 2C6.5 2 3 7 3 12c0 2.8 1.2 5.3 3.1 7 .8-3.5 3.5-6.5 7.4-7.5C10.6 13 9 15 9 17.5c0 3 2 5.3 4.8 5.5C17.5 23.1 21 18.5 21 13c0-6-4-11-9-11Z" />
+      </svg>
+      <span>MySpace</span>
+    </a>
+
+    <div class="nav-links">
+      <a class="active" href="myhome.html">My Home</a>
+      <a href="ai.html">AI Design</a>
+      <a href="desinger.html">Designers</a>
+      <a href="shop.html">Reuse Furniture</a>
+      <a href="myprojects.html">My Projects</a>
+    </div>
+
+    <div class="nav-user">
+      <button class="icon-button" aria-label="Notifications"
+        onclick="showMessage('No new notifications.')">▢</button>
+      <span class="avatar" id="userAvatar">U</span>
+      <button class="logout-btn" id="logoutBtn">Logout</button>
+    </div>
+
+    <button class="mobile-menu" id="mobileMenu" aria-label="Toggle menu">☰</button>
+  </nav>
+
+  <main class="dashboard">
+
+    <!-- Dashboard heading -->
+    <section class="page-heading">
+      <div>
+        <span class="eyebrow">DASHBOARD</span>
+        <h1>My Home</h1>
+        <p id="homeSubtitle">Sara's Apartment · Amman, Jordan</p>
+      </div>
+
+      <button class="primary-btn" id="addRoomTop">+ Add New Room</button>
+    </section>
+
+    <!-- Statistics -->
+    <section class="stats-grid">
+      <article class="stat-card progress-card">
+        <span class="stat-label">OVERALL PROGRESS</span>
+        <strong id="overallProgress">48%</strong>
+        <div class="progress-track">
+          <div class="progress-fill" id="overallProgressBar"></div>
+        </div>
+        <p>Home design completion</p>
+      </article>
+
+      <article class="stat-card">
+        <span class="stat-label">ACTIVE ROOMS</span>
+        <strong id="activeRooms">5</strong>
+        <p id="roomCountText">of 6 total</p>
+      </article>
+
+      <article class="stat-card">
+        <span class="stat-label">TOTAL BUDGET</span>
+        <strong id="totalBudget">JD 8,550</strong>
+        <p>allocated across rooms</p>
+      </article>
+    </section>
+
+    <!-- Rooms heading and view controls -->
+    <section class="rooms-section">
+      <div class="rooms-heading">
+        <h2>Your Rooms</h2>
+
+        <div class="view-switch">
+          <button class="view-btn active" id="gridView">Grid</button>
+          <button class="view-btn" id="listView">List</button>
+        </div>
+      </div>
+
+      <!-- JavaScript renders room cards here -->
+      <div class="rooms-grid" id="roomsGrid"></div>
+    </section>
+
+  </main>
+
+  <!-- Add room dialog -->
+  <dialog id="roomDialog" class="room-dialog">
+    <form id="roomForm">
+      <div class="dialog-heading">
+        <div>
+          <span class="eyebrow">NEW PROJECT SPACE</span>
+          <h2>Add a New Room</h2>
+        </div>
+        <button type="button" class="close-btn" id="closeDialog"
+          aria-label="Close dialog">×</button>
+      </div>
+
+      <label for="roomName">Room Name</label>
+      <input id="roomName" name="roomName" placeholder="e.g. Guest Bedroom" required>
+
+      <label for="roomStyle">Interior Style</label>
+      <select id="roomStyle" name="roomStyle">
+        <option>Modern</option>
+        <option>Scandinavian</option>
+        <option>Minimal</option>
+        <option>Classic</option>
+        <option>Industrial</option>
+        <option>Playful</option>
+      </select>
+
+      <label for="roomBudget">Budget (JD)</label>
+      <input id="roomBudget" name="roomBudget" type="number"
+        min="0" step="100" value="5000" required>
+
+      <button class="primary-btn dialog-submit" type="submit">Create Room</button>
+    </form>
+  </dialog>
+
+  <!-- Small notification message -->
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <!-- Page JavaScript -->
+  <script src="platform-data.js"></script><script src="auth-guard.js"></script>
+  <script src="app-links.js"></script>
+  <script src="myhome.js"></script>
+</body>
+</html>

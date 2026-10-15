@@ -1,0 +1,590 @@
+
+/* ===== 1. Colors and general settings ===== */
+:root {
+  --cream: #f8f0e6;
+  --white: #fffdfa;
+  --wine: #500d13;
+  --brown: #80513d;
+  --sand: #e8d4c1;
+  --border: #e5cbb7;
+  --muted: #a18a7d;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--cream);
+  color: #291713;
+  font-family: "DM Sans", sans-serif;
+  font-size: 15px;
+  overflow-x: hidden;
+}
+
+button, input, select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+/* ===== 2. Navigation ===== */
+.navbar {
+  width: 100%;
+  min-height: 70px;
+  padding: 12px 4%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  border-bottom: 1px solid var(--border);
+  background: var(--cream);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.brand {
+  color: var(--wine);
+  font-family: "Playfair Display", serif;
+  font-size: 24px;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(15px, 2.2vw, 34px);
+}
+
+.nav-links a {
+  color: #704b39;
+  text-decoration: none;
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+.nav-links a:hover {
+  color: var(--wine);
+}
+
+.nav-user {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.notification-icon {
+  color: var(--brown);
+  font-size: 19px;
+}
+
+.avatar {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: #cfa9a3;
+  color: var(--wine);
+  font-size: 11px;
+}
+
+.logout-btn {
+  padding: 9px 16px;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  background: transparent;
+  color: var(--brown);
+  font-size: 12px;
+}
+
+.mobile-menu {
+  display: none;
+  border: none;
+  background: transparent;
+  color: var(--wine);
+  font-size: 23px;
+}
+
+/* ===== 3. Main page layout ===== */
+.page-container {
+  width: 92%;
+  max-width: 1500px;
+  margin: 34px auto 55px;
+}
+
+.page-heading {
+  margin-bottom: 28px;
+}
+
+.eyebrow {
+  display: block;
+  margin-bottom: 8px;
+  color: #a77965;
+  font-size: 11px;
+  letter-spacing: 1.5px;
+}
+
+.page-heading h1 {
+  margin: 0 0 8px;
+  font-family: "Playfair Display", serif;
+  font-size: clamp(30px, 2.6vw, 42px);
+  font-weight: 400;
+  line-height: 1.25;
+}
+
+.page-heading p {
+  margin: 0;
+  color: var(--brown);
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+/* ===== 4. White form cards ===== */
+.form-card {
+  width: 100%;
+  min-width: 0;
+  margin-bottom: 22px;
+  padding: clamp(20px, 2.2vw, 32px);
+  border-radius: 15px;
+  background: var(--white);
+  box-shadow: 0 4px 18px rgba(70, 36, 20, .05);
+}
+
+.form-card h2 {
+  margin: 0 0 18px;
+  color: #8d4f38;
+  font-family: "Playfair Display", serif;
+  font-size: 19px;
+  font-weight: 400;
+}
+
+/* ===== 5. Photo upload area ===== */
+.photo-card {
+  padding-bottom: 24px;
+}
+
+.upload-area {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: clamp(200px, 25vh, 300px);
+  overflow: hidden;
+  border: 2px dashed #e4c4aa;
+  border-radius: 11px;
+  cursor: pointer;
+  background: #fffdfa;
+  transition: border-color .2s, background .2s;
+}
+
+.upload-area:hover,
+.upload-area.dragging {
+  border-color: var(--wine);
+  background: #fbf4ec;
+}
+
+.upload-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 24px;
+  text-align: center;
+}
+
+.upload-icon {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  margin-bottom: 3px;
+  border-radius: 50%;
+  background: var(--sand);
+  color: var(--brown);
+  font-size: 23px;
+}
+
+.upload-title {
+  color: var(--brown);
+  font-size: 16px;
+}
+
+.upload-hint {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.choose-file {
+  margin-top: 3px;
+  padding: 10px 20px;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  color: var(--brown);
+  background: white;
+  font-size: 12px;
+}
+
+.photo-preview {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.photo-preview[hidden],
+.remove-photo[hidden] {
+  display: none;
+}
+
+.remove-photo {
+  display: block;
+  margin: 12px 0 0 auto;
+  border: none;
+  background: transparent;
+  color: var(--wine);
+  font-size: 12px;
+  text-decoration: underline;
+}
+
+/* ===== 6. Form fields ===== */
+.form-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.field {
+  min-width: 0;
+}
+
+.field label {
+  display: block;
+  margin-bottom: 9px;
+  font-size: 13px;
+  color: #38251d;
+}
+
+.field input,
+.field select {
+  display: block;
+  width: 100%;
+  height: 48px;
+  min-width: 0;
+  padding: 0 14px;
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  outline: none;
+  background-color: white;
+  color: var(--brown);
+  font-size: 14px;
+}
+
+.field select {
+  cursor: pointer;
+}
+
+.field input::placeholder {
+  color: #b39a8a;
+}
+
+.field input:focus,
+.field select:focus {
+  border-color: var(--wine);
+  box-shadow: 0 0 0 3px rgba(80, 13, 19, .07);
+}
+
+/* ===== 7. Style, color, and furniture choices ===== */
+.choice-group {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+.choice {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  min-height: 38px;
+  padding: 9px 16px;
+  border: 1px solid var(--border);
+  border-radius: 25px;
+  background: white;
+  color: #704b39;
+  font-size: 12px;
+  line-height: 1.4;
+  transition: background .15s, color .15s, border-color .15s;
+}
+
+.choice:hover {
+  border-color: var(--wine);
+}
+
+.choice.selected {
+  border-color: var(--wine);
+  background: var(--wine);
+  color: white;
+}
+
+.color-choice.selected {
+  background: #ead8c8;
+  color: #38251d;
+  border-color: var(--wine);
+}
+
+.color-dot {
+  flex: 0 0 auto;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: var(--dot);
+  border: 1px solid rgba(0, 0, 0, .08);
+}
+
+/* ===== 8. Form buttons ===== */
+.form-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-top: 26px;
+}
+
+.primary-btn,
+.secondary-btn {
+  min-height: 50px;
+  padding: 13px 20px;
+  border: 1px solid var(--wine);
+  border-radius: 30px;
+  font-size: 14px;
+  font-weight: 500;
+  transition: background .2s, color .2s;
+}
+
+.primary-btn {
+  background: var(--wine);
+  color: white;
+}
+
+.primary-btn:hover {
+  background: #701820;
+}
+
+.secondary-btn {
+  border-color: var(--border);
+  background: transparent;
+  color: var(--brown);
+}
+
+.secondary-btn:hover {
+  border-color: var(--wine);
+  background: white;
+  color: var(--wine);
+}
+
+.form-message {
+  min-height: 0;
+  margin: 0;
+  color: var(--wine);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.form-message:not(:empty) {
+  margin-top: 14px;
+}
+
+.form-message.success {
+  color: #356747;
+}
+
+/* ===== 9. Responsive layout ===== */
+@media (min-width: 1200px) {
+  .page-container {
+    width: 92%;
+  }
+
+  #roomDetailsForm {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 26px;
+    align-items: stretch;
+  }
+
+  .photo-card,
+  .form-actions,
+  .form-message {
+    grid-column: 1 / -1;
+  }
+
+  .form-card {
+    margin-bottom: 24px;
+  }
+
+  .upload-area {
+    min-height: 250px;
+  }
+}
+
+/* ===== 10. Tablet and mobile ===== */
+@media (max-width: 900px) {
+  .navbar {
+    gap: 14px;
+    padding: 12px 3%;
+  }
+
+  .brand {
+    font-size: 21px;
+  }
+
+  .nav-links {
+    gap: 13px;
+  }
+
+  .nav-links a {
+    font-size: 11px;
+  }
+
+  .page-container {
+    width: 94%;
+  }
+
+  #roomDetailsForm {
+    display: block;
+  }
+}
+
+@media (max-width: 560px) {
+  .navbar {
+    flex-wrap: wrap;
+    height: auto;
+    min-height: 56px;
+    padding: 12px 16px;
+  }
+
+  .mobile-menu {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    order: 5;
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .nav-links a {
+    padding: 10px 0;
+    font-size: 13px;
+  }
+
+  .nav-user {
+    margin-left: auto;
+  }
+
+  .notification-icon {
+    display: none;
+  }
+
+  .page-container {
+    width: calc(100% - 28px);
+    margin: 22px auto 35px;
+  }
+
+  .page-heading h1 {
+    font-size: 27px;
+  }
+
+  .page-heading p {
+    font-size: 12px;
+  }
+
+  .form-card {
+    padding: 17px;
+    margin-bottom: 16px;
+  }
+
+  .form-card h2 {
+    font-size: 16px;
+    margin-bottom: 13px;
+  }
+
+  .upload-area {
+    min-height: 180px;
+  }
+
+  .field label {
+    font-size: 12px;
+  }
+
+  .field input,
+  .field select {
+    height: 43px;
+    font-size: 12px;
+  }
+
+  .form-row {
+    gap: 12px;
+  }
+
+  .choice-group {
+    gap: 8px;
+  }
+
+  .choice {
+    min-height: 33px;
+    padding: 8px 11px;
+    font-size: 11px;
+  }
+
+  .form-actions {
+    gap: 10px;
+  }
+
+  .primary-btn,
+  .secondary-btn {
+    min-height: 44px;
+    padding: 10px;
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 380px) {
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .form-actions {
+    grid-template-columns: 1fr;
+  }
+
+  .nav-user {
+    gap: 7px;
+  }
+
+  .logout-btn {
+    padding: 7px 10px;
+  }
+}

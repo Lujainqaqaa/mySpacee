@@ -1,0 +1,250 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Room Details | MySpace</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Page CSS -->
+  <link rel="stylesheet" href="room-details.css">
+  <link rel="stylesheet" href="nav-shared.css">
+</head>
+
+<body>
+
+  <!-- ===== 1. Navigation ===== -->
+  <nav class="navbar">
+    <a class="brand" href="myhome.html" aria-label="MySpace home">
+      <svg class="brand-mark" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M12 2C6.5 2 3 7 3 12c0 2.8 1.2 5.3 3.1 7 .8-3.5 3.5-6.5 7.4-7.5C10.6 13 9 15 9 17.5c0 3 2 5.3 4.8 5.5C17.5 23.1 21 18.5 21 13c0-6-4-11-9-11Z" />
+      </svg>
+      <span>MySpace</span>
+    </a>
+
+    <button class="mobile-menu" id="mobileMenu" type="button"
+      aria-label="Toggle navigation">☰</button>
+
+    <div class="nav-links">
+      <a href="myhome.html">My Home</a>
+      <a href="ai.html">AI Design</a>
+      <a href="desinger.html">Designers</a>
+      <a href="shop.html">Reuse Furniture</a>
+      <a href="myprojects.html">My Projects</a>
+    </div>
+
+    <div class="nav-user">
+      <span class="notification-icon">♧</span>
+      <span class="avatar" id="userAvatar">U</span>
+      <button class="logout-btn" id="logoutBtn" type="button">Logout</button>
+    </div>
+  </nav>
+
+  <!-- ===== 2. Main content ===== -->
+  <main class="page-container">
+
+    <header class="page-heading">
+      <span class="eyebrow">ROOM CONFIGURATION</span>
+      <h1 id="pageTitle">Living Room Details</h1>
+      <p>Tell us about your space so we can generate the perfect design.</p>
+    </header>
+
+    <form id="roomDetailsForm">
+
+      <!-- ===== 3. Room photo ===== -->
+      <section class="form-card photo-card">
+        <h2>Room Photo</h2>
+
+        <label class="upload-area" for="roomPhoto">
+
+          <div class="upload-content" id="uploadContent">
+            <span class="upload-icon">▧</span>
+            <span class="upload-title">Upload your room photo</span>
+            <span class="upload-hint">PNG, JPG up to 2MB</span>
+            <span class="choose-file">Choose File</span>
+          </div>
+
+          <img
+            class="photo-preview"
+            id="photoPreview"
+            alt="Room photo preview"
+            hidden
+          >
+
+          <input
+            type="file"
+            id="roomPhoto"
+            accept="image/png,image/jpeg,image/webp"
+            hidden
+          >
+        </label>
+
+        <button
+          class="remove-photo"
+          id="removePhoto"
+          type="button"
+          hidden
+        >Remove Photo</button>
+      </section>
+
+      <!-- ===== 4. Room information ===== -->
+      <section class="form-card">
+        <h2>Room Information</h2>
+
+        <div class="form-row">
+          <div class="field">
+            <label for="roomType">Room Type</label>
+            <select id="roomType" required>
+              <option value="Living Room">Living Room</option>
+              <option value="Master Bedroom">Master Bedroom</option>
+              <option value="Kids Room">Kids Room</option>
+              <option value="Kitchen">Kitchen</option>
+              <option value="Dining Room">Dining Room</option>
+              <option value="Home Office">Home Office</option>
+              <option value="Bathroom">Bathroom</option>
+              <option value="Guest Bedroom">Guest Bedroom</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="roomSize">Room Size (m²)</label>
+            <input
+              type="number"
+              id="roomSize"
+              min="1"
+              max="10000"
+              step="0.1"
+              placeholder="e.g. 25"
+            >
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== 5. Preferred style ===== -->
+      <section class="form-card">
+        <h2>Preferred Style</h2>
+
+        <div class="choice-group" id="styleChoices">
+          <button class="choice" type="button" data-value="Modern">Modern</button>
+          <button class="choice" type="button" data-value="Classic">Classic</button>
+          <button class="choice" type="button" data-value="Minimal">Minimal</button>
+          <button class="choice selected" type="button" data-value="Scandinavian">Scandinavian</button>
+          <button class="choice" type="button" data-value="Industrial">Industrial</button>
+          <button class="choice" type="button" data-value="Bohemian">Bohemian</button>
+          <button class="choice" type="button" data-value="Art Deco">Art Deco</button>
+        </div>
+      </section>
+
+      <!-- ===== 6. Preferred colors ===== -->
+      <section class="form-card">
+        <h2>Preferred Colors</h2>
+
+        <div class="choice-group" id="colorChoices">
+          <button class="choice color-choice" type="button" data-value="Ivory">
+            <span class="color-dot" style="--dot:#e8d9c7"></span>Ivory
+          </button>
+
+          <button class="choice color-choice" type="button" data-value="Beige">
+            <span class="color-dot" style="--dot:#d7c0a6"></span>Beige
+          </button>
+
+          <button class="choice color-choice" type="button" data-value="Sage">
+            <span class="color-dot" style="--dot:#8da78a"></span>Sage
+          </button>
+
+          <button class="choice color-choice" type="button" data-value="Dusty Blue">
+            <span class="color-dot" style="--dot:#91b3c7"></span>Dusty Blue
+          </button>
+
+          <button class="choice color-choice" type="button" data-value="Terracotta">
+            <span class="color-dot" style="--dot:#c56c4d"></span>Terracotta
+          </button>
+
+          <button class="choice color-choice" type="button" data-value="Charcoal">
+            <span class="color-dot" style="--dot:#353535"></span>Charcoal
+          </button>
+
+          <button class="choice color-choice" type="button" data-value="Burgundy">
+            <span class="color-dot" style="--dot:#64151d"></span>Burgundy
+          </button>
+
+          <button class="choice color-choice" type="button" data-value="Dusty Rose">
+            <span class="color-dot" style="--dot:#d5a7a0"></span>Dusty Rose
+          </button>
+        </div>
+      </section>
+
+      <!-- ===== 7. Budget and lighting ===== -->
+      <section class="form-card">
+        <h2>Budget &amp; Lighting</h2>
+
+        <div class="form-row">
+          <div class="field">
+            <label for="roomBudget">Budget (JD)</label>
+            <input
+              type="number"
+              id="roomBudget"
+              min="0"
+              max="100000000"
+              step="100"
+              value="15000"
+              required
+            >
+          </div>
+
+          <div class="field">
+            <label for="lighting">Lighting Preference</label>
+            <select id="lighting">
+              <option value="Warm ambient">Warm ambient</option>
+              <option value="Natural light">Natural light</option>
+              <option value="Bright white">Bright white</option>
+              <option value="Soft lighting">Soft lighting</option>
+              <option value="Layered lighting">Layered lighting</option>
+            </select>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== 8. Furniture needs ===== -->
+      <section class="form-card">
+        <h2>Furniture Needs</h2>
+
+        <div class="choice-group" id="furnitureChoices">
+          <button class="choice" type="button" data-value="Sofa / Seating">Sofa / Seating</button>
+          <button class="choice" type="button" data-value="Bed / Mattress">Bed / Mattress</button>
+          <button class="choice" type="button" data-value="Dining Table">Dining Table</button>
+          <button class="choice" type="button" data-value="Wardrobe">Wardrobe</button>
+          <button class="choice" type="button" data-value="Shelving / Storage">Shelving / Storage</button>
+          <button class="choice" type="button" data-value="Curtains">Curtains</button>
+          <button class="choice" type="button" data-value="Rugs">Rugs</button>
+          <button class="choice" type="button" data-value="Lighting">Lighting</button>
+        </div>
+      </section>
+
+      <!-- ===== 9. Actions ===== -->
+      <div class="form-actions">
+        <button class="secondary-btn" type="submit">Save Room</button>
+
+        <button class="primary-btn" id="aiDesignBtn" type="button">
+          Get AI Design →
+        </button>
+      </div>
+
+      <p class="form-message" id="formMessage" role="status" aria-live="polite"></p>
+
+    </form>
+  </main>
+
+  <!-- Page JavaScript -->
+  <script src="platform-data.js"></script><script src="auth-guard.js"></script>
+  <script src="app-links.js"></script>
+  <script src="room-details.js"></script>
+</body>
+</html>
+

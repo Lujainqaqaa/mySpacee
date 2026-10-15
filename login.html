@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login | MySpace</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="login.css">
+</head>
+<body>
+  <main class="auth-page">
+    <!-- Left side: interior photo and welcome message -->
+    <section class="visual-panel">
+      <div class="photo-overlay"></div>
+      <div class="visual-copy">
+        <h2>Your Dream Home Begins Here</h2>
+      </div>
+    </section>
+
+    <!-- Right side: login and sign-up forms -->
+    <section class="form-panel">
+      <div class="form-content">
+        <a class="back-link" href="index.html"><span aria-hidden="true">←</span> Back to Home</a>
+
+        <header class="form-heading">
+          <h1 id="headingTitle">Welcome Back</h1>
+          <p id="headingSubtitle">Sign in to continue designing your home.</p>
+        </header>
+        <form id="authForm" novalidate>
+          <div class="field">
+            <label for="email">Email Address</label>
+            <input id="email" name="email" type="email" placeholder="sara@example.com" autocomplete="email" required>
+          </div>
+
+          <div class="field">
+            <label for="password">Password</label>
+            <div class="password-wrap">
+              <input id="password" name="password" type="password" placeholder="••••••••" autocomplete="current-password" required minlength="6">
+              <button class="toggle-password" type="button" id="togglePassword" aria-label="Show password">Show</button>
+            </div>
+          </div>
+
+          <div class="form-options">
+            <label class="remember-option" id="rememberOption">
+              <input type="checkbox" id="remember">
+              <span>Remember me</span>
+            </label>
+            <button class="text-link" type="button" id="forgotPassword">Forgot password?</button>
+          </div>
+
+          <button class="submit-button" id="submitButton" type="submit">Login</button>
+          <p class="form-message" id="formMessage" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+  <script src="platform-data.js"></script><script src="app-links.js"></script>
+  <script src="login.js"></script>
+
+</body>
+</html>

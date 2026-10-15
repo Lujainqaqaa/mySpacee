@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="MySpace is an AI-powered interior design platform for beautiful, personalized homes." />
+  <title>MySpace — Design Your Dream Home</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="stylee.css" />
+  <script src="platform-data.js"></script><script src="js.js" defer></script>
+</head>
+<body>
+  <header class="site-header" id="home">
+    <div class="nav-wrap">
+      <a class="logo" href="#home" aria-label="MySpace home">MySpace</a>
+      <button class="menu-button" type="button" aria-expanded="false" aria-controls="main-nav">
+        <span></span><span></span>
+        <span class="sr-only">Open navigation</span>
+      </button>
+      <nav class="main-nav" id="main-nav" aria-label="Main navigation">
+        <a href="#spaces">Spaces</a>
+        <a href="#how">How it Works</a>
+        <a href="#ai-design">AI Design</a>
+        <a href="#designers">Designers</a>
+        <a href="#reuse">Reuse</a>
+        <a href="#about">About</a>
+        <div class="nav-actions">
+          <button class="link-btn" type="button" data-demo="Login">Login</button>
+          <a class="link-btn admin-nav-link" href="admin-login.html">Admin</a>
+          <button class="pill pill-light" type="button" data-demo="Sign Up">Sign Up</button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      
+<video class="hero-video"
+       autoplay
+       muted
+       loop
+       playsinline
+       preload="metadata"
+       poster="https://images.unsplash.com/photo-1758448755778-90ebf4d0f1e7?auto=format&fit=crop&w=2000&q=85">
+
+    <source src="266042.mp4" type="video/mp4">
+
+    Your browser does not support HTML video.
+</video>
+
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <p class="label">Smart Interior Design Platform</p>
+        <h1 class="display">Turn your <br/> empty space<br />into your <br/> dream home </h1>
+
+        <div class="hero-actions">
+          <a class="pill pill-outline" href="#ai-design">Explore AI Design</a>
+        </div>
+      </div>
+      <div class="marquee hero-marquee" aria-hidden="true">
+        <div class="marquee-track1"><span>MySpace</span><span>MySpace</span><span>MySpace</span><span>MySpace</span><span>MySpace</span><span>MySpace</span><span>MySpace</span><span>MySpace</span></div>
+      </div>
+    </section>
+
+    <!-- STATS -->
+    <section class="stats" aria-label="MySpace statistics">
+      <div><strong>12K+</strong><span>Homes Designed</span></div>
+      <div><strong>450+</strong><span>Expert Designers</span></div>
+      <div><strong>3.2K+</strong><span>Furniture Listings</span></div>
+      <div><strong>98%</strong><span>Happy Homeowners</span></div>
+    </section>
+
+    <!-- HEADLINE -->
+    <section class="headline">
+      <div class="headline-text reveal">
+        <p class="label">Interiors, Unfiltered</p>
+        <h2 class="title">Design that feels<br />entirely yours</h2>
+      </div>
+      <div class="marquee big-marquee" aria-hidden="true">
+        <div class="marquee-track"><span>Your Home</span><span>Your Home</span><span>Your Home</span><span>Your Home</span><span>Your Home</span><span>Your Home</span></div>
+      </div>
+    </section>
+
+    <!-- SPACES -->
+    <section class="block" id="spaces">
+      <div class="block-head reveal">
+        <p class="label">Curated Inspiration</p>
+        <h2 class="title">Popular Spaces</h2>
+      </div>
+      <div class="spaces">
+        <a class="space-card reveal" href="#" data-demo="Start Designing">
+          <img src="Home Decor Inspo Amazon Finds 2026.jpg" alt="Scandinavian living room" />
+          <div class="shade"></div>
+          <div class="meta"><span class="num">N.001</span><h3>Living Room</h3><p>Scandinavian</p></div>
+        </a>
+        <a class="space-card reveal" href="#" data-demo="Start Designing">
+          <img src="download (7).jpg" alt="Modern master bedroom" />
+          <div class="shade"></div>
+          <div class="meta"><span class="num">N.002</span><h3>Master Bedroom</h3><p>Modern</p></div>
+        </a>
+        <a class="space-card reveal" href="#" data-demo="Start Designing">
+          <img src="Kitchen Accessories _ Modern Kitchen Organization & Essentials.jpg" alt="Minimal kitchen" />
+          <div class="shade"></div>
+          <div class="meta"><span class="num">N.003</span><h3>Kitchen</h3><p>Minimal</p></div>
+        </a>
+        <a class="space-card reveal" href="#" data-demo="Start Designing">
+          <img src="Стул Брауни _ dinikma home.jpg" alt="Classic dining room" />
+          <div class="shade"></div>
+          <div class="meta"><span class="num">N.004</span><h3>Dining Room</h3><p>Classic</p></div>
+        </a>
+      </div>
+      <button class="pill pill-full" type="button" data-demo="Start Designing">See More Spaces <span>→</span></button>
+    </section>
+
+    <!-- HOW -->
+    <section class="block dark" id="how">
+      <div class="block-head reveal">
+        <p class="label">A Simple Process</p>
+        <h2 class="title">How MySpace Works</h2>
+      </div>
+      <ol class="steps">
+        <li class="step reveal"><span class="num">N.01</span><h3>Add Your Rooms</h3><p>Create your home profile and add every room you want to transform.</p></li>
+        <li class="step reveal"><span class="num">N.02</span><h3>Set Your Style</h3><p>Upload photos and choose your favorite style, colors, and budget.</p></li>
+        <li class="step reveal"><span class="num">N.03</span><h3>Get AI Design</h3><p>Receive personalized furniture, lighting, and décor recommendations.</p></li>
+        <li class="step reveal"><span class="num">N.04</span><h3>Connect &amp; Create</h3><p>Hire trusted experts, find furniture, and bring your concept to life.</p></li>
+      </ol>
+    </section>
+
+    <!-- AI FEATURE (full-bleed featured entry) -->
+    <section class="featured" id="ai-design">
+      <img src="Herbstliche Wohnzimmer-Idee in warmen Erdtönen.jpg" alt="Elegant neutral living room designed with warm tones" />
+      <div class="shade"></div>
+      <div class="featured-body reveal">
+        <div class="featured-top"><span class="num">AI.001</span><span class="num">Featured</span></div>
+        <div>
+          <p class="label">AI Design</p>
+          <h2 class="title">See the potential<br />in every room</h2>
+          <p class="lead">Upload a photo, select your preferences, and let MySpace create a thoughtful concept with furniture, colors, lighting, rugs, and styling ideas.</p>
+          <ul class="checks">
+            <li>Personalized to your space and budget</li>
+            <li>Complete furniture and décor guidance</li>
+            <li>Save, compare, and refine your concepts</li>
+          </ul>
+          <button class="pill pill-light" type="button" data-demo="AI Design">Try AI Design Free</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- DESIGNERS -->
+    <section class="block" id="designers">
+      <div class="block-head reveal">
+        <p class="label">A Design Column, Unfiltered</p>
+        <h2 class="title">Dear Designer</h2>
+        <p class="sub">Meet verified experts ready to help with every detail of your home.</p>
+      </div>
+      <div class="designers">
+        <article class="designer reveal">
+          <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=600&q=85" alt="Portrait of Nour Design Studio" />
+          <div><span class="num">★ 4.9</span><h3>Nour Design Studio</h3><p>Interior Designer · Amman</p><button class="link-btn dark" type="button" data-demo="View Profile">View Profile →</button></div>
+        </article>
+        <article class="designer reveal">
+          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=85" alt="Portrait of Craft & Care" />
+          <div><span class="num">★ 4.8</span><h3>Craft & Care</h3><p>Furniture Maker · Irbid</p><button class="link-btn dark" type="button" data-demo="View Profile">View Profile →</button></div>
+        </article>
+        <article class="designer reveal">
+          <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=600&q=85" alt="Portrait of Studio Terra" />
+          <div><span class="num">★ 5.0</span><h3>Studio Terra</h3><p>Lighting Expert · Amman</p><button class="link-btn dark" type="button" data-demo="View Profile">View Profile →</button></div>
+        </article>
+      </div>
+      <button class="pill pill-full" type="button" data-demo="Browse All Designers">Browse All Designers <span>→</span></button>
+    </section>
+
+    <!-- REUSE -->
+    <section class="block split" id="reuse">
+      <div class="reuse-gallery reveal">
+        <img src="download (11).jpg" alt="Beautiful sofa ready for a new home" />
+        <img src="Instagram.jpg" alt="Pre-loved armchair in a warm interior" />
+        <img src="download (13).jpg" alt="Beautiful sofa ready for a new home" />
+
+        <img src="Round Ottoman with Storage.jpg" alt="Beautiful sofa ready for a new home" />
+
+
+      </div>
+      <div class="reuse-copy reveal">
+        <p class="label">Community &amp; Sustainability</p>
+        <h2 class="title">Give furniture<br />a second life</h2>
+        <p class="lead">Borrow, exchange, or rehome furniture within the MySpace community. Beautiful design can be both accessible and responsible.</p>
+        <ul class="checks">
+          <li>List furniture you no longer need</li>
+          <li>Borrow pieces for short-term use</li>
+          <li>Exchange with nearby homeowners</li>
+        </ul>
+        <button class="pill pill-dark" type="button" data-demo="Browse Furniture">Browse Furniture</button>
+      </div>
+    </section>
+
+    <!-- MISSION -->
+    <section class="mission" id="about">
+      <div class="mission-text reveal">
+        <p class="label">Our Mission</p>
+        <h2 class="title">Beautiful homes,<br />sustainable future</h2>
+        <p class="lead">We believe every homeowner deserves a beautifully designed space. By making expert design more accessible and encouraging furniture reuse, we are creating a more thoughtful future — one home at a time.</p>
+      </div>
+      <div class="marquee big-marquee" aria-hidden="true">
+        <div class="marquee-track"><span>One Home At A Time</span><span>One Home At A Time</span><span>One Home At A Time</span><span>One Home At A Time</span></div>
+      </div>
+    </section>
+
+    <!-- BANNER CTA -->
+    <section class="banner">
+      <img src="rattakarn-living-room-8557308.jpg" alt="" />
+      <div class="shade"></div>
+      <div class="banner-body reveal">
+        <p class="label">Your Home, Reimagined</p>
+        <h2 class="display">It would be a privilege<br />to design with you</h2>
+        <button class="pill pill-light" type="button" data-demo="Create Account">Create Your Free Account</button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div>
+        <a class="logo" href="#home">MySpace</a>
+        <p>Thoughtful interior design, made personal and accessible.</p>
+      </div>
+      <div><h3>Platform</h3><a href="#ai-design">AI Design</a><a href="#designers">Designers</a><a href="#reuse">Reuse Furniture</a></div>
+      <div><h3>Company</h3><a href="#about">About Us</a><a href="#about">Our Mission</a><a href="#home">Contact</a></div>
+      <div>
+        <h3>Stay inspired</h3>
+        <p>Receive calm, curated design ideas.</p>
+        <form class="newsletter">
+          <label class="sr-only" for="email">Email address</label>
+          <input id="email" type="email" placeholder="Email address" required />
+          <button type="submit" aria-label="Subscribe">→</button>
+        </form>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© <span id="year"></span> MySpace. All rights reserved.</p>
+      <div><a href="#home">Privacy</a><a href="#home">Terms</a></div>
+    </div>
+  </footer>
+
+  <div class="toast" role="status" aria-live="polite"></div>
+</body>
+</html>

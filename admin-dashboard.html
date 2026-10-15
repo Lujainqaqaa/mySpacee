@@ -1,0 +1,21 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Dashboard | MySpace Admin</title><link rel="stylesheet" href="admin.css"></head><body><div class="admin-shell"><aside class="sidebar"><a class="brand" href="admin-dashboard.html"><strong>MySpace</strong><span>ADMIN PANEL</span></a><nav class="side-nav" aria-label="Admin navigation"><a href="admin-dashboard.html" class="active">Dashboard</a>
+<a href="admin-users.html" class="">Users</a>
+<a href="admin-providers.html" class="">Providers</a>
+<a href="admin-designers.html" class="">Designers</a>
+<a href="admin-projects.html" class="">Projects</a>
+<a href="admin-bookings.html" class="">Bookings</a>
+<a href="admin-reuse.html" class="">Reuse Furniture</a>
+<a href="admin-reports.html" class="">Reports</a>
+<a href="admin-reviews.html" class="">Reviews</a>
+<a href="admin-complaints.html" class="">Complaints</a>
+<a href="admin-content.html" class="">Content</a>
+<a href="admin-notifications.html" class="">Notifications</a>
+<a href="admin-settings.html" class="">Settings</a></nav><div class="side-bottom">MySpace Platform<br>Administration</div></aside><main class="main"><header class="topbar"><div><h1>Dashboard</h1><p>Quick overview of platform activity and performance.</p></div><button class="admin-avatar" id="adminAvatar" title="Admin account">AD</button></header><section class="stats-grid">
+<div class="stat-card"><span>Total Users</span><strong>1,284</strong></div><div class="stat-card"><span>Active Providers</span><strong>186</strong></div><div class="stat-card"><span>Projects</span><strong>742</strong></div><div class="stat-card"><span>Bookings</span><strong>328</strong></div><div class="stat-card"><span>Monthly Revenue</span><strong>12,450 JD</strong></div></section>
+<section class="dashboard-insights">
+  <article class="panel insight-panel"><div class="analytics-heading"><div><h2>Platform health</h2><p>Live snapshot from saved platform records</p></div><span class="live-pill"><i></i> Live data</span></div><div class="health-content"><div class="health-ring" id="healthRing"><span id="healthPercent">0%</span></div><div class="health-copy"><strong id="healthTitle">Platform activity</strong><p id="healthDescription">Calculated from current projects, bookings and listings.</p><div class="health-legend"><span><i class="legend-dot good"></i>Active / completed</span><span><i class="legend-dot pending"></i>Pending review</span></div></div></div></article>
+  <article class="panel insight-panel"><div class="analytics-heading"><div><h2>Records by area</h2><p>Compare current workload across sections</p></div></div><div id="areaChart" class="area-chart"></div></article>
+</section>
+<section class="dashboard-grid"><div class="panel"><h2>Recent Activity</h2><div class="activity"><div class="activity-row"><i class="dot"></i><span>New provider registration</span><small>Today</small></div><div class="activity-row"><i class="dot"></i><span>Project completed</span><small>Today</small></div><div class="activity-row"><i class="dot"></i><span>Furniture item offered</span><small>Today</small></div><div class="activity-row"><i class="dot"></i><span>New booking request</span><small>Today</small></div><div class="activity-row"><i class="dot"></i><span>User account created</span><small>Today</small></div></div></div>
+<div class="panel"><h2>Platform Status</h2><div class="status-row"><span>Users</span><strong>Active</strong></div><div class="status-row"><span>Providers</span><strong>Verified</strong></div><div class="status-row"><span>Projects</span><strong>On Track</strong></div><div class="status-row"><span>Support</span><strong>5 Open</strong></div></div></section>
+<section class="panel"><h2>Quick Actions</h2><div class="quick-actions"><a href="admin-users.html">Add User</a><a href="admin-providers.html">Verify Provider</a><a href="admin-bookings.html">View Bookings</a><a href="admin-reuse.html">Moderate Furniture</a><a href="admin-content.html">Manage Content</a></div></section></main></div><script src="platform-data.js"></script><script src="admin.js"></script></body></html>

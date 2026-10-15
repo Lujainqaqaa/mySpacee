@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MySpace | Reuse Furniture</title>
+  <link rel="stylesheet" href="shop.css">
+  <link rel="stylesheet" href="nav-shared.css">
+</head>
+<body>
+  <!-- Main navigation -->
+  <header class="topbar">
+    <a class="brand" href="myhome.html" aria-label="MySpace home">
+      <svg class="brand-mark" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M12 2C6.5 2 3 7 3 12c0 2.8 1.2 5.3 3.1 7 .8-3.5 3.5-6.5 7.4-7.5C10.6 13 9 15 9 17.5c0 3 2 5.3 4.8 5.5C17.5 23.1 21 18.5 21 13c0-6-4-11-9-11Z" />
+      </svg>
+      <span>MySpace</span>
+    </a>
+    <nav class="main-nav" aria-label="Main navigation">
+      <a href="myhome.html">My Home</a>
+      <a href="ai.html">AI Design</a>
+      <a href="desinger.html">Designers</a>
+      <a class="active" href="shop.html">Reuse Furniture</a>
+      <a href="myprojects.html">My Projects</a>
+    </nav>
+    <div class="nav-actions">
+      <button class="message-button" aria-label="Messages" title="Messages">▱</button>
+      <button class="avatar" id="avatarButton" aria-label="User profile">U</button>
+      <button class="logout" id="logoutButton">Logout</button>
+    </div>
+  </header>
+
+  <main class="page">
+    <!-- Page title and post action -->
+    <section class="page-heading">
+      <div>
+        <p class="eyebrow">COMMUNITY</p>
+        <h1>Reuse Furniture</h1>
+        <p class="subtitle">Borrow, exchange, or rehome furniture within the community.</p>
+      </div>
+      <button class="button button-primary post-button" id="postFurnitureButton">＋ Post Furniture</button>
+    </section>
+
+    <!-- Search, transaction type filters, and furniture categories -->
+    <section class="filter-area">
+      <div class="search-and-mode">
+        <label class="search-box"><span aria-hidden="true">⌕</span><input id="searchInput" type="search" placeholder="Search furniture..." autocomplete="off"></label>
+        <div class="mode-filters" aria-label="Furniture exchange mode">
+          <button class="mode active" data-mode="All">All</button>
+          <button class="mode" data-mode="Borrow">Borrow</button>
+          <button class="mode" data-mode="Exchange">Exchange</button>
+          <button class="mode" data-mode="Reuse">Reuse</button>
+        </div>
+      </div>
+      <div class="category-filters" aria-label="Furniture category">
+        <button class="category active" data-category="All">All</button>
+        <button class="category" data-category="Sofa">Sofa</button>
+        <button class="category" data-category="Bed">Bed</button>
+        <button class="category" data-category="Table">Table</button>
+        <button class="category" data-category="Desk">Desk</button>
+        <button class="category" data-category="Chair">Chair</button>
+        <button class="category" data-category="Storage">Storage</button>
+      </div>
+    </section>
+
+    <!-- Furniture listings rendered from script.js -->
+    <section id="furnitureGrid" class="furniture-grid" aria-label="Furniture listings"></section>
+    <p class="empty-state" id="emptyState" hidden>No furniture listings match your filters.</p>
+  </main>
+
+  <!-- Shared modal for posting furniture and requests -->
+  <div class="modal-backdrop" id="modalBackdrop" hidden>
+    <section class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal-close" id="modalClose" aria-label="Close dialog">×</button>
+      <h2 id="modalTitle">Furniture</h2>
+      <div id="modalContent"></div>
+      <button class="button button-outline modal-cancel" id="modalCancel">Close</button>
+    </section>
+  </div>
+  <script src="platform-data.js"></script><script src="auth-guard.js"></script>
+  <script src="app-links.js"></script>
+  <script src="shop.js"></script>
+</body>
+</html>

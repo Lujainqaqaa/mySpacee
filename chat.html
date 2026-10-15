@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MySpace | Messages</title>
+  <link rel="stylesheet" href="chat.css">
+  <link rel="stylesheet" href="nav-shared.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <header class="navbar">
+    <a class="brand" href="myhome.html" aria-label="MySpace home">
+      <svg class="brand-mark" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M12 2C6.5 2 3 7 3 12c0 2.8 1.2 5.3 3.1 7 .8-3.5 3.5-6.5 7.4-7.5C10.6 13 9 15 9 17.5c0 3 2 5.3 4.8 5.5C17.5 23.1 21 18.5 21 13c0-6-4-11-9-11Z" />
+      </svg>
+      <span>MySpace</span>
+    </a>
+    <nav class="nav-links">
+      <a href="myhome.html">My Home</a>
+      <a href="ai.html">AI Design</a>
+      <a href="desinger.html">Designers</a>
+      <a href="shop.html">Reuse Furniture</a>
+      <a href="myprojects.html">My Projects</a>
+    </nav>
+    <div class="nav-actions">
+      <a class="message-shortcut active" href="index.html" aria-label="Messages" title="Messages">▱</a>
+      <button class="user-avatar" id="userAvatar" aria-label="Profile">U</button>
+      <button class="logout" id="logoutBtn">Logout</button>
+    </div>
+  </header>
+
+  <main class="page">
+    <p class="eyebrow">COMMUNICATION</p>
+    <h1>Messages</h1>
+
+    <section class="messenger">
+      <!-- Conversations list -->
+      <aside class="conversation-panel">
+        <div class="search-area">
+          <label class="search-box">
+            <span>⌕</span>
+            <input type="search" id="chatSearch" placeholder="Search chats..." aria-label="Search chats">
+          </label>
+        </div>
+        <div id="conversationList" class="conversation-list"></div>
+      </aside>
+
+      <!-- Active chat -->
+      <section class="chat-panel">
+        <header class="chat-header">
+          <div class="person-avatar" id="activeAvatar">L</div>
+          <div class="person-details">
+            <h2 id="activeName">Layla Hassan</h2>
+            <p id="activeStatus">Online · Interior Designer</p>
+          </div>
+        </header>
+        <div class="messages" id="messages" aria-live="polite"></div>
+        <form class="message-form" id="messageForm">
+          <input id="messageInput" type="text" maxlength="500" placeholder="Write a short message..." autocomplete="off" aria-label="Write a message" required>
+          <button type="submit" aria-label="Send message">➤</button>
+        </form>
+      </section>
+    </section>
+  </main>
+  <script src="platform-data.js"></script><script src="auth-guard.js"></script>
+  <script src="app-links.js"></script>
+  <script src="chat.js"></script>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MySpace | Profile & Settings</title>
+  <link rel="stylesheet" href="setting.css">
+  <link rel="stylesheet" href="nav-shared.css">
+</head>
+<body>
+  <!-- Main navigation -->
+  <header class="topbar">
+    <a class="brand" href="myhome.html" aria-label="MySpace home">
+      <svg class="brand-mark" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M12 2C6.5 2 3 7 3 12c0 2.8 1.2 5.3 3.1 7 .8-3.5 3.5-6.5 7.4-7.5C10.6 13 9 15 9 17.5c0 3 2 5.3 4.8 5.5C17.5 23.1 21 18.5 21 13c0-6-4-11-9-11Z" />
+      </svg>
+      <span>MySpace</span>
+    </a>
+    <nav class="main-nav" aria-label="Main navigation">
+      <a href="myhome.html">My Home</a>
+      <a href="ai.html">AI Design</a>
+      <a href="desinger.html">Designers</a>
+      <a href="shop.html">Reuse Furniture</a>
+      <a href="myprojects.html">My Projects</a>
+    </nav>
+    <div class="nav-actions">
+      <button class="message-button" aria-label="Messages" title="Messages">▱</button>
+      <button class="avatar avatar-nav" id="navAvatar" aria-label="Open profile settings">U</button>
+      <button class="logout" id="navLogout">Logout</button>
+    </div>
+  </header>
+
+  <main class="page">
+    <section class="page-heading">
+      <p class="eyebrow">ACCOUNT</p>
+      <h1>Profile &amp; Settings</h1>
+    </section>
+
+    <div class="settings-layout">
+      <!-- Settings section navigation -->
+      <aside class="settings-sidebar" aria-label="Settings sections">
+        <button class="side-link active" data-section="account">Account</button>
+        <button class="side-link" data-section="password">Password</button>
+        <button class="side-link" data-section="notifications">Notifications</button>
+        <button class="side-link" data-section="privacy">Privacy</button>
+        <button class="side-link" data-section="preferences">Preferences</button>
+        <div class="side-divider"></div>
+        <button class="side-link danger" id="sideLogout">Logout</button>
+        <button class="side-link danger" id="deleteAccount">Delete Account</button>
+      </aside>
+
+      <!-- Account/profile panel -->
+      <section class="settings-card">
+        <div class="profile-summary">
+          <div class="profile-avatar-wrap">
+            <div class="profile-avatar" id="profileInitial">S</div>
+            <label class="avatar-upload" for="avatarInput" title="Choose profile image">+</label>
+            <input id="avatarInput" type="file" accept="image/*" hidden>
+          </div>
+          <div class="profile-identity">
+            <h2 id="profileDisplayName">Sara Al-Ahmadi</h2>
+            <p id="profileDisplayEmail">sara@example.com</p>
+            <span class="role-chip" id="profileRole">Homeowner</span>
+          </div>
+        </div>
+
+        <div class="panel-divider"></div>
+        <div id="sectionContent">
+          <!-- Account form is rendered by script.js -->
+        </div>
+        <p class="feedback" id="feedback" role="status" aria-live="polite"></p>
+      </section>
+    </div>
+  </main>
+
+  <!-- Reusable confirmation / information dialog -->
+  <div class="modal-backdrop" id="modalBackdrop" hidden>
+    <section class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal-close" id="modalClose" aria-label="Close dialog">×</button>
+      <h2 id="modalTitle">Message</h2>
+      <div id="modalContent"></div>
+      <div class="modal-actions" id="modalActions">
+        <button class="button button-outline" id="modalCancel">Cancel</button>
+      </div>
+    </section>
+  </div>
+  <script src="platform-data.js"></script><script src="auth-guard.js"></script>
+  <script src="app-links.js"></script>
+  <script src="setting.js"></script>
+</body>
+</html>
